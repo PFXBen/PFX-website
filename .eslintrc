@@ -1,0 +1,110 @@
+{
+    "parser": "babel-eslint",
+    "root": true,
+    "extends": [
+      "airbnb",
+      "plugin:flowtype/recommended"
+    ],
+    "env": {
+        "browser": true
+    },
+    "globals": {
+      "__DEV__": false,
+      "__PROD__": false,
+      "__TEST__": false,
+      "__INT_TEST__": false,
+      "__BROWSER_BUILD__": false,
+      "__SERVER_BUILD__": false,
+      "expect": false
+    },
+    "plugins": [
+      "flowtype",
+      "mocha"
+    ],
+    "rules": {
+      // Validate Indentation
+      "indent": [2, 4, {"SwitchCase": 1}],
+      "no-console": ["error"],
+      "linebreak-style": 0,
+      "no-else-return": 0,
+
+      // Limit Maximum Length of Line
+      "max-len": [2, 200, 2, {
+        "ignoreUrls": true,
+        "ignoreComments": false
+      }],
+
+      // Missing trailing coma
+      "comma-dangle": ["error", "always-multiline"],
+
+      // Rule for Immutable JS
+      "new-cap": [2, { "capIsNewExceptions": ["Record", "List"] }],
+
+      // todo: turn these rules on in #511
+      "react/no-array-index-key": 1,
+
+      // Configures the amount of whitespace that should be used when indenting JSX
+      // First value is 0 = off, 1 = warning, 2 = error
+      // Second value is the number of whitespace characters
+      "react/jsx-indent-props": [2, 4],
+      "react/jsx-indent": [2, 4],
+      "react/jsx-closing-bracket-location": [2, "after-props"],
+      "global-require": [0],
+      "no-confusing-arrow": [0],
+      "react/no-danger": 0,
+
+      // todo: remove this when you have nothing to do and pass the eslint
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "react/no-find-dom-node": 0,
+      "react/require-extension": 0,
+      "import/no-extraneous-dependencies": [2, {"devDependencies": true}],
+      "import/prefer-default-export": 0,
+      "import/no-named-as-default": 0,
+      "import/named": 2,
+      "no-mixed-operators": 0,
+
+      // TODO: Enforce return types
+
+      "react/no-unused-prop-types": [2, {"skipShapeProps": true}], // See this issue: https://github.com/yannickcr/eslint-plugin-react/issues/861
+      "jsx-a11y/no-static-element-interactions": 0,
+      "arrow-parens": 0,
+      "no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
+
+      // it does not like import from blackjack-forms where main file index has .jsx extension
+      "import/no-unresolved": 1,
+      "import/extensions": 1,
+
+      "mocha/no-exclusive-tests": 2,
+      "mocha/no-identical-title": 2,
+      "mocha/no-skipped-tests": 2,
+
+      // flowtype
+      "flowtype/boolean-style": 2,
+      "flowtype/delimiter-dangle": [2, "always-multiline"],
+      "flowtype/no-dupe-keys": 2,
+      "flowtype/no-primitive-constructor-types": 2,
+      "flowtype/no-weak-types": [0, {
+        "any": true,
+        "Object": true,
+        "Function": true,
+      }],
+      "flowtype/object-type-delimiter": [2, "semicolon"],
+      "flowtype/require-valid-file-annotation": [2, "always", { "annotationStyle": "block" }],
+      "flowtype/semi": [2, "never"],
+      "flowtype/space-before-generic-bracket": [2, "never"],
+      "flowtype/space-before-type-colon": [2, "never"],
+      "flowtype/space-after-type-colon": [2, "always"],
+      "flowtype/union-intersection-spacing": [2, "always"],
+    },
+    "settings": {
+      "flowtype": {
+        "onlyFilesWithFlowAnnotation": true
+      },
+      "import/ignore": [
+        "node_modules",
+        "src\/universal\/config",
+        "src\/universal\/viewBag",
+        "types\\.js$"
+      ]
+    }
+  }
