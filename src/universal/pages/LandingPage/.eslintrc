@@ -1,0 +1,10 @@
+{
+    "env": {
+      "mocha": true
+    },
+    "rules" : {
+      "padded-blocks" : [0, "never"],
+      "func-names": 0,
+      "prefer-arrow-callback": 0
+    }
+  }
