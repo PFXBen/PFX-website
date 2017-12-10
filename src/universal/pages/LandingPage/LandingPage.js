@@ -2,7 +2,7 @@ import React from 'react';
 
 const LandingPage = () =>
     <div data-test-id="landing-page">
-        TSA Racing
+        React Build
     </div>;
 
 export default LandingPage;
