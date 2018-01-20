@@ -1,11 +1,15 @@
 {
-    "presets": [
-      "es2015",
-      "stage-0",
-      "react"
+  "presets": [
+    [
+      "env", {
+        "browsers": ["last 2 versions", "IE > 10", "safari > 6"]
+      }
     ],
-    "plugins": [
-      "transform-runtime",
-      "transform-class-properties"
-    ]
-  }
+    "react",
+    "airbnb",
+    "stage-0"
+  ],
+  "plugins": [
+    "transform-class-properties"
+  ]
+}

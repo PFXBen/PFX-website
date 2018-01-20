@@ -5,8 +5,8 @@ import { shallow } from 'enzyme';
 import LandingPage from './LandingPage';
 
 describe('<LandingPage />', () => {
-    it('should render', () => {
+    test('should render', () => {
         const component = shallow(<LandingPage />);
-        expect(component.find('[data-test-id="landing-page"]')).toExist(true);
+        expect(component.find('[data-test-id="landing-page"]').length).toEqual(1);
     });
 });
