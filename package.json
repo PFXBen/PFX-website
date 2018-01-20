@@ -7,7 +7,7 @@
     "build": "./node_modules/.bin/webpack -p --env production",
     "build-storybook": "build-storybook",
     "dev": "webpack-dev-server --hot --config webpack.dev.config.js",
-    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress",
+    "heroku-postbuild": "npm run build",
     "lint": "eslint ./src",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
