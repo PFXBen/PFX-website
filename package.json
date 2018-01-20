@@ -10,6 +10,7 @@
     "heroku-postbuild": "npm run build",
     "lint": "eslint ./src",
     "test": "jest",
+    "start": "node server.js",
     "storybook": "start-storybook -p 6006",
     "stylelint": "stylelint ./src/browser/styles/scss/**/*.scss --syntax scss",
     "validate": "npm ls"
