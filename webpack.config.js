@@ -1,48 +1,40 @@
-var path = require('path');
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    devtool: 'eval',
-    entry: './src/universal/client.js',
+    entry: './src/universal/index.js',
     output: {
-        path: path.join(__dirname, 'public'),
-        filename: 'bundle.js'
+      filename: 'bundle.js',
+      path: path.resolve(__dirname, 'public')
     },
     module: {
-        loaders: [
-            {
-                test: /\.js$/,
-                loader: 'babel',
-                exclude: /node_modules/
-            },
-            {
-                test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader')
-            },
-            {
-                test: /\.(png|woff|woff2|eot|ttf|svg|jpg)$/,
-                loader: 'url-loader?limit=100000'
-            },
-            {
-                test: /\.svg$/,
-                loader: 'svg-inline'
-            },
-            {   test: /\.json$/,
-                loader: "json-loader"
-            }
-        ]
-    },
-
-    sassLoader: {
-        outputStyle: 'compressed',
-        includePaths: ['node_modules']
-    },
-    postcss: function () {
-        return [autoprefixer({browsers: ['last 3 versions', 'not ie <= 10']})]
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader',
+        },
+        {
+          test: /\.scss$/,
+          use: ExtractTextPlugin.extract({
+            use: [{
+                loader: "css-loader" // translates CSS into CommonJS
+            }, {
+                loader: "sass-loader" // compiles Sass to CSS
+            }],
+          })
+        },
+        {
+          test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+          loader: 'url-loader',
+          options: {
+            limit: 10000
+          }
+        }
+      ]
     },
     plugins: [
-        new ExtractTextPlugin('global.css')
+      new ExtractTextPlugin('global.css'),
     ]
-};
+}
