@@ -65,9 +65,10 @@
     "react-dom": ">=16"
   },
   "dependencies": {
-    "@storybook/react": "^3.2.15",
     "@storybook/addon-actions": "^3.2.15",
     "@storybook/addon-links": "^3.2.15",
+    "@storybook/react": "^3.2.15",
+    "babel-core": "^6.26.0",
     "babel-polyfill": "6.26.0",
     "classnames": "2.2.5",
     "clean-webpack-plugin": "^0.1.17",
