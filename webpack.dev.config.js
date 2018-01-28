@@ -1,4 +1,6 @@
 const config = require('./webpack.config.js');
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 config.entry = ['./src/universal/index.js'];
 
@@ -13,14 +15,25 @@ config.module.rules = [
     exclude: [/node_modules/, /lib/]
   },
   {
-    test: /.scss/,
-    use: [
-      'style-loader',
-      'css-loader',
-      'sass-loader?includePaths[]=./node_modules'
-    ]
+    test: /\.scss$/,
+    use: ExtractTextPlugin.extract({
+      use: [{
+          loader: "css-loader"
+      }, {
+          loader: "sass-loader",
+          options: {
+            includePaths: [
+                  path.resolve('./node_modules'),
+            ]
+          }
+      }],
+    }),
   },
 ];
+
+plugins: [
+  new ExtractTextPlugin('global.css'),
+]
 
 config.devServer = {
   port: 3000,

@@ -1,3 +1,4 @@
+
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -19,11 +20,16 @@ module.exports = {
           test: /\.scss$/,
           use: ExtractTextPlugin.extract({
             use: [{
-                loader: "css-loader" // translates CSS into CommonJS
+                loader: "css-loader"
             }, {
-                loader: "sass-loader" // compiles Sass to CSS
+                loader: "sass-loader",
+                options: {
+                  includePaths: [
+                        path.resolve('./node_modules'),
+                  ]
+                }
             }],
-          })
+          }),
         },
         {
           test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
