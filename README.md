@@ -6,7 +6,7 @@ React build is a node.js app structure that can act as a template for you to bui
 [![Semver](http://img.shields.io/SemVer/0.0.1.png)](http://semver.org/spec/v0.0.1.html)
 
 ### Build Status:
-[![CircleCI](https://circleci.com/gh/StefanMcCready/react-build.svg?style=svg)](https://circleci.com/gh/StefanMcCready/react-build)
+[![CircleCI](https://circleci.com/gh/StefanMcCready/stefans-react-build.svg?style=svg)](https://circleci.com/gh/StefanMcCready/stefans-react-build)
 
 ## Key technologies
 
