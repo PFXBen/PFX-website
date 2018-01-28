@@ -40,7 +40,7 @@ module.exports = {
         },
         {
           test: /\.md$/,
-          loader: "html!markdown?gfm=false"
+          loader: "html-loader!markdown-loader?gfm=false"
         }
       ]
     },
