@@ -37,6 +37,10 @@ module.exports = {
           options: {
             limit: 10000
           }
+        },
+        {
+          test: /\.md$/,
+          loader: "html!markdown?gfm=false"
         }
       ]
     },

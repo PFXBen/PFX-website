@@ -29,6 +29,10 @@ config.module.rules = [
       }],
     }),
   },
+  {
+    test: /\.md$/,
+    loader: "html-loader!markdown-loader?gfm=false"
+  }
 ];
 
 plugins: [
