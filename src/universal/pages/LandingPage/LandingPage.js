@@ -18,7 +18,7 @@ class LandingPage extends Component {
 
     render() {
         return(
-            <div>
+            <div data-test-id="landing-page">
                 <div className="markdown-body"
                     dangerouslySetInnerHTML={{__html: marked(readMe)}}
                 />
